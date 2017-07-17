@@ -5,30 +5,28 @@ module.exports = function aceDungeons(dispatch) {
 	let baracosX = 16921;
 	let baracosY = 177244;
 	let baracosZ = -1664;
-	let baracosW = 0;
 	
 	let akashaX = 68482;
 	let akashaY = 125779;
 	let akashaZ = 776;
-	let akashaW = 0;
 	
 	dispatch.hook('S_LOGIN', 1, event => {
 		CID = event.cid;
 	})
 	
-    dispatch.hook('S_SPAWN_ME', 1, event => {
-        if(baracosX == event.x && baracosY == event.y && baracosZ == event.z && baracosW == event.w)
+	dispatch.hook('S_SPAWN_ME', 1, event => {
+        if(baracosX == event.x && baracosY == event.y && baracosZ == event.z)
         {
-            baracosTele();
-            return false;
+		baracosTele();
+		return false;
         }
 		
-		if(akashaX == event.x && akashaY == event.y && akashaZ == event.z && akashaW == event.w)
-		{
-			akashaTele();
-			return false;
-		}
-    })
+	if(akashaX == event.x && akashaY == event.y && akashaZ == event.z)
+	{
+		akashaTele();
+		return false;
+	}
+	})
 	
 	function baracosTele()
 	{
