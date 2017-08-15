@@ -15,21 +15,18 @@ module.exports = function aceDungeons(dispatch) {
 	})
 	
 	dispatch.hook('S_SPAWN_ME', 1, event => {
-		if(baracosX == event.x && baracosY == event.y && baracosZ == event.z)
-		{
+		if(baracosX == event.x && baracosY == event.y && baracosZ == event.z) {
 			baracosTele();
 			return false;
 		}
 
-		if(akashaX == event.x && akashaY == event.y && akashaZ == event.z)
-		{
+		if(akashaX == event.x && akashaY == event.y && akashaZ == event.z) {
 			akashaTele();
 			return false;
 		}
 	})
 	
-	function baracosTele()
-	{
+	function baracosTele() {
 		dispatch.toClient('S_SPAWN_ME', 1, {
 			target: CID,
 			x: 28175.435546875,
@@ -41,8 +38,7 @@ module.exports = function aceDungeons(dispatch) {
 		})
 	}
 	
-	function akashaTele()
-	{
+	function akashaTele() {
 		dispatch.toClient('S_SPAWN_ME', 1, {
 			target: CID,
 			x: 72421.5078125,
